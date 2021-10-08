@@ -1,0 +1,71 @@
+#1
+x = int(input())
+if x % 2 == 0:
+    print (x,'ЧЕТНОЕ') 
+else :
+    print (x,' не ЧЕТНОЕ') 
+#2
+a = input().split("_")
+print(str( (int(a[0]) * 9/5) + 32))
+#3
+a = int(input())
+if a % 5 !=0 and a % 7 !=0:
+    print('00')
+else:
+    if a % 5 == 0 and  a % 7 ==0:
+        print('11')
+    else:
+        if a % 5 == 0 and  a % 7 !=0:
+            print('01')
+        else:
+                if a % 5 != 0 and  a % 7 ==0:
+                    print('10')
+
+#4
+import math
+ 
+print("Введите коэффициенты для уравнения")
+a = float(input("a = "))
+b = float(input("b = "))
+c = float(input("c = "))
+ 
+discr = b ** 2 - 4 * a * c
+print("Дискриминант D = %.2f" % discr)
+ 
+if discr > 0:
+    x1 = (-b + math.sqrt(discr)) / (2 * a)
+    x2 = (-b - math.sqrt(discr)) / (2 * a)
+    print("x1 = %.2f \nx2 = %.2f" % (x1, x2))
+elif discr == 0:
+    x = -b / (2 * a)
+    print("x = %.2f" % x)
+else:
+    print("Корней нет")
+
+#5
+import random
+a= int(input()) 
+n=random.randint(1, a)
+b = input('количество попыток')
+k = 0
+while True:
+    if k !=b:
+        text = int(input('Введите число или стоп для выхода: '))
+        if text == 'стоп':
+            k +=1
+            print('Выход из программы! До встречи! Загадано было', n)
+            break 
+        elif text == n:
+            print('Победа')
+            k +=1
+            break
+    
+        else:
+            k +=1
+            if text < n:
+                
+                print('Попробуйте еще >')
+            else:
+                print('Попробуйте еще <')
+    else:
+        break
