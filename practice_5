@@ -1,0 +1,118 @@
+1
+def check_numbers (list, n):
+ final_list = []
+ for i in list:
+ if i >= n:
+ final_list.append(i)
+ print(final_list)
+
+2
+test_list = [[4, 9, 2], [3, 5, 7], [8, 1, 6]]
+
+def detector (list):
+    if sum(list[0]) == sum(list[1]) == sum(list[2]):
+        string_condition = True
+    else:
+        string_condition = False
+
+    sum1 = 0
+    sum2 = 0
+    sum3 = 0
+    diagonal_1_sum = 0
+    diagonal_2_sum = 0
+
+    for i in range(len(list)):
+        sum1 += list[i][0]
+        sum2 += list[i][1]
+        sum3 += list[i][2]
+
+        diagonal_1_sum += list[i][i]
+        diagonal_2_sum += list[i][len(list) - 1 - i]
+
+    if sum1 == sum2 == sum3:
+        column_condition = True
+    else:
+        column_condition = False
+
+    if diagonal_1_sum == diagonal_2_sum:
+        diagonals_condition = True
+    else:
+        diagonals_condition = False
+
+    if (string_condition & column_condition & diagonals_condition):
+        print('Lo Shu squere')
+    else:
+        print('Not Lo Shu squere')
+
+detector(test_list)
+3
+def initials (fio):
+    surname = fio.split(' ')[0]
+    name = fio.split(' ')[1]
+    patronymic = fio.split(' ')[2]
+
+    result = f'{surname[0].upper()}. {name[0].upper()}. {patronymic[0].upper()}.'
+    print(result)
+
+initials('Михаил Иванович Кузнецов')
+4
+def quiz():
+    from random import shuffle as shuffle
+    dictionary = {
+        'Russia': 'Moscow',
+        'Belarus': 'Minsk',
+        'Ukraine': 'Kiev'
+    }
+
+    random_keys_list = list(dictionary.keys())
+    shuffle(random_keys_list)
+    score = 0
+
+    for i in random_keys_list:
+        answer = input(f'Enter the capital of {i}: ')
+        if answer == dictionary[i]:
+            score += 1
+            print(f'Correct answer, your score {score}')
+        else:
+            print(f'Wrong answer, your score {score}')
+
+
+quiz()
+5
+def vowels(string):
+    vowels_score = 0
+    for n, i in enumerate(string):
+        if i.upper() in ['A', 'E', 'I', 'O', 'U']:
+            vowels_score += 1
+    return vowels_score
+
+
+def consonants(string):
+    consonants_score = 0
+    for i in string:
+        if i.upper() in ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
+                         'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']:
+            consonants_score += 1
+    return consonants_score
+
+verifiable_string = input('Enter the string: ')
+func = input('Enter the type of letters you want to count: ')
+if func == 'consonants':
+    consonants(verifiable_string)
+elif func == 'vowels':
+    vowels(verifiable_string)
+
+6
+verifiable_string = input('Enter the string: ')
+most_frequent_letters = []
+dictionary = {}
+for i in verifiable_string:
+    if i in dictionary:
+        dictionary[i] += 1
+    else:
+        dictionary[i] = 1
+
+for i in dictionary.items():
+    if i[1] == max(dictionary.values()):
+        most_frequent_letters.append(i[0])
+print(most_frequent_letters)
