@@ -1,0 +1,47 @@
+1
+def nested_sum(t):
+ total = 0
+ for i in t:
+ total += sum(i)
+ return(total)
+2
+def cumsum(t):
+    cumlist = []
+    for n, i in enumerate(t):
+        cumlist.append(sum(t[:n + 1]))
+    return(cumlist)
+3
+def middle(t):
+    return t[1: len(t) - 1]
+4
+def chop(t):
+    t.pop(0)
+    t.pop(len(t) - 1)
+5
+def is_sorted(t):
+    if sorted(list(t)) == list(t):
+        answer = True
+    else:
+        answer = False
+    return answer
+6
+def is_anagram(word1, word2):
+    word1.replace(' ', '')
+    word2.replace(' ', '')
+    print(set(word1), set(word2))
+    if set(word1) == set(word2):
+        condition = True
+    else:
+        condition = False
+    return condition
+7
+def has_duplicates(s):
+    signs = []
+    condition = False
+    for i in s:
+        if i in signs:
+            condition = True
+            break
+        else:
+            signs.append(i)
+    return condition
