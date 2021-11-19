@@ -1,0 +1,76 @@
+1
+import argparse
+import os.path
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("a", type=str)
+
+args = parser.parse_args()
+
+
+
+def s(a):
+    if os.path.exists(a):
+       with open(f'{args.a}') as file:
+            for i in range(10):
+                ln = file.readline()
+                print(ln.strip())
+       return ln
+    else:
+        print("Такого файла нет")
+
+
+s(args.a)
+2
+import argparse
+import os.path
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("a", type=str)
+parser.add_argument("b", type=str)
+
+args = parser.parse_args()
+
+
+
+def s(a,b):
+    if os.path.exists(a) and os.path.exists(b):
+       with open(f'{args.a}') as file:
+           with open(f'{args.b}') as file1:
+                while True:
+                    ln = file.readline()
+                    print(ln.strip())
+                    if not ln:
+                        break
+                while True:
+                    ln = file1.readline()
+                    print(ln.strip())
+                    if not ln:
+                        break
+
+       return ln
+    else:
+        print("Какого-то файла нет")
+
+
+s(args.a, args.b)
+3
+import argparse
+
+parser = argparse.ArgumentParser(description='dada')
+parser.add_argument('dadada', type=str)
+arg = parser.parse_args()
+with open(f'{arg.dadada}') as file:
+    lines = file.readlines()
+    with open(f'{arg.dadada}', 'w') as file:
+        for i, line in enumerate(lines, 1):
+            if len(line) != 0:
+                string = str(str(i) + ': ' + str(line))
+                file.write(string)
+            else:
+                break
+4
+5
+6
