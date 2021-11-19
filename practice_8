@@ -74,3 +74,31 @@ with open(f'{arg.dadada}') as file:
 4
 5
 6
+import os
+def replace_word():
+    temp = 0
+    temp_list = []
+    word = "строка-образец"
+    filename = 'example.txt'
+    with open(filename, 'r') as file:
+        for item in file:
+            temp += 1
+            if temp == 3:
+                if word in item:
+                    print ("ok")
+                else:
+                    print ("error")
+                    file.close() 
+                    os.remove(filename)
+                    return 0
+ 
+            temp_list.extend([item])
+                        
+    temp_list[5] = temp_list[3] 
+    
+    with open(filename, 'w') as file:
+        for item in temp_list:
+            file.write(item)
+ 
+if __name__ == '__main__':
+    replace_word()
