@@ -1,0 +1,76 @@
+1)
+import time
+time.process_time()
+from random import randint
+x = [randint(0, 1000) for a in range(1000)]
+
+def spis(array, key):
+ for i in range(len(array)):
+ if array[i] == key:
+ return i
+ return None
+print(spis(x, 546))
+print(time.process_time())
+2.
+from random import randint
+import time
+time.process_time()
+def binary_search(array, key):
+ low = 0
+ up = len(array) - 1
+ while low <= up:
+ cen = (low+up)//2
+ if array[cen] == key:
+ return cen
+
+        elif array[cen] > key:
+            up = cen-1
+        elif array[cen] < key:
+            low = cen+1
+    return None
+
+x = [randint(0, 10) for a in range(10)]
+x = sorted(x)
+
+print(x)
+print(binary_search(x, 3))
+print(time.process_time())
+3.
+import time
+time.process_time()
+def bsearch(a, b, n, key):
+    if (n < b):
+        return None
+    else:
+        m = b + ((n - b) // 2)
+        if a[m] > key:
+            return bsearch(a, b, m - 1, key)
+        elif a[m] < key:
+            return bsearch(a, m + 1, n, key)
+        else:
+            return m
+a = []
+for i in range(1000000):
+    a.append(i)
+
+print(bsearch(a, 0, 999999, 3))
+print(time.process_time())
+
+
+1.
+1 = 0.021993828
+100 = 0.031149077
+1000 = 0.025774927
+1000000 = 0.890322569
+
+2.
+1 = 0.025663495
+100 = 0.021117977
+1000 = 0.031152008
+1000000 = 1.556172746 
+
+3.
+1 = 0.177082344
+100 = 0.180948656
+1000 = 0.175762884
+1000000 = 0.211796829
