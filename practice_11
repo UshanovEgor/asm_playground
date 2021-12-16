@@ -1,0 +1,21 @@
+from random import randint
+n=10
+a=[]
+for i in range(n):
+    a.append(randint(1,100))
+for i in range(n-1):
+    for j in range(n-i-1):
+        if a[j]>a[j+1]:
+            a[j], a[j+1]=a[j+1], a[j]
+print(a)
+2. Сложность 2^n
+3.
+a=[0]*101
+for i in map(int, input().split()):
+    a[i]+=1
+s=[]
+for i in range(len(a)):
+    s.extend(([i]*a[i]))
+print(s)
+4.
+сложность n, т.к. число вызывается один раз
