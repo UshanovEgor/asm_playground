@@ -1,77 +1,84 @@
-1
+1)
+import argparse
+
+def create_parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f','--filename', type=str)
+    return parser
+
+def create_file(filename):
+    try:
+        with open(filename, 'r') as f:
+            nums = f.read().splitlines()
+    except IOError:
+        print('File with current name did not find. Try another name')
+        quit()
+    return nums
+
+def output_lines(file,count):
+    for i in range(count):
+        print(file[i])
+
+parser = create_parse()
+namespace = parser.parse_args()
+workspace = create_file(namespace.filename)
+output_lines(workspace,10)
+
+2)
 import argparse
 import os.path
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description='Contact files')
 
-parser.add_argument("a", type=str)
-
+parser.add_argument("doc1", type=str)
+parser.add_argument("doc2", type=str)
 args = parser.parse_args()
 
-
-
-def s(a):
-    if os.path.exists(a):
-       with open(f'{args.a}') as file:
-            for i in range(10):
-                ln = file.readline()
-                print(ln.strip())
-       return ln
-    else:
-        print("Такого файла нет")
-
-
-s(args.a)
-2
-import argparse
-import os.path
-
-parser = argparse.ArgumentParser()
-
-parser.add_argument("a", type=str)
-parser.add_argument("b", type=str)
-
-args = parser.parse_args()
-
-
-
-def s(a,b):
-    if os.path.exists(a) and os.path.exists(b):
-       with open(f'{args.a}') as file:
-           with open(f'{args.b}') as file1:
+def func(doc1,doc2):
+    if os.path.exists(doc1) and os.path.exists(doc2):
+       with open(f'{args.doc1}') as file1:
+           with open(f'{args.doc2}') as file2:
                 while True:
-                    ln = file.readline()
-                    print(ln.strip())
-                    if not ln:
+                    line = file1.readline()
+                    print(line.strip())
+                    if not line:
                         break
                 while True:
-                    ln = file1.readline()
-                    print(ln.strip())
-                    if not ln:
+                    line = file2.readline()
+                    print(line.strip())
+                    if not line:
                         break
-
-       return ln
+       return line
     else:
-        print("Какого-то файла нет")
+        print("Недостачно файлов")
 
-
-s(args.a, args.b)
-3
-import argparse
-
-parser = argparse.ArgumentParser(description='dada')
-parser.add_argument('dadada', type=str)
-arg = parser.parse_args()
-with open(f'{arg.dadada}') as file:
-    lines = file.readlines()
-    with open(f'{arg.dadada}', 'w') as file:
-        for i, line in enumerate(lines, 1):
-            if len(line) != 0:
-                string = str(str(i) + ': ' + str(line))
-                file.write(string)
-            else:
-                break
-4
+func(args.doc1, args.doc2)
+3)
+def strok_numer(a, new_name):
+        t=""
+        k = 1
+        with open(a, 'r') as f:
+            nums = f.read().splitlines()
+        for i in nums:
+            t+=str(k)+": "+i+"\n"
+            k+=1
+        with open(new_name, 'w') as f:
+            f.write(t)
+            
+ 4)
+           def most_word(m):
+    t=[]
+    with open(m, 'r') as f:
+        nums = f.read().splitlines()
+        for i in nums:
+            t.extend(i.split())
+            t = list(reversed(sorted(t, key=len)))
+            len_max = len(t[0])
+            for i in t:
+                if len(i) == len_max:
+                    print(i)
+                else:
+                    break
 5
 6
 import os
