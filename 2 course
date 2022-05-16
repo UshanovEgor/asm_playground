@@ -1,0 +1,695 @@
+1pract
+Задание 1 
+#include <iostream>
+using namespace std;
+bool accept(){
+    int chis1 = 0;
+    int chis2 = 0;
+    char sign;
+    cin >> chis1;
+    cin >> chis2;
+    cin >> sign;
+    switch(sign)
+    {
+        case '+':
+            cout << chis1 + chis2 << endl;
+            break;
+        case '-':
+            cout << chis1 - chis2 << endl;
+            break;
+        case '*':
+            cout << chis1 * chis2 << endl;
+            break;
+        case '/':
+            cout << chis1 / chis2 << endl;
+            break;
+        default:
+            cout << "not cool" << endl;
+            break;
+    }
+    return false;
+}
+int main() {
+    cout << "Enter 2 numbers and a symbol" << endl;
+    bool result = false;
+    accept();
+    return 0;
+}
+
+Задание 2
+
+#include <iostream>
+#include "windows.h"
+using namespace std;
+bool accept(){
+    int n;
+    cin >> n;
+    while(n > 0)
+    {
+        std::cout << n << endl;
+        Sleep(1000);
+        --n;
+    }
+    return 0;
+}
+int main() {
+    cout << "Enter the 'n'" << endl;
+    accept();
+    return 0;
+}
+Задание 3
+#include <iostream>
+#include <string>
+int main()
+{
+    int n;
+    std::string apple = "яблок";
+    std::cout<<"Введите кол-во яблок:";
+    std::cin >> n;
+    {
+        if ((n==1) || (n % 10 == 1)) {
+            apple = apple +"о";
+        }
+        if ((n > 1 && n < 5) || (n % 10 > 1 && n % 10 < 5)) {
+            apple = apple + "а";
+        }
+        if ((n >= 5 && n < 10) || (n % 10 >= 5 && n % 10 < 10) || (n % 100 > 10 && n % 100 < 15 )) {
+            apple = "яблок";
+        }
+        std::cout << n << ' ' << apple;
+    }
+}
+2pract
+задание 1.
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string text = "#include <iostream>\n"
+                  " \n"
+                  "int main() {\n"
+                  "std::cout << \"Hello, World!\\n\" << std::endl;\n"
+                  "return 0;\n"
+                  "}";
+    cout<<text; 
+}
+
+Задание 3.
+#include <iostream>
+using namespace std;
+int main() {
+    int a;
+    cin >> a;
+    int b;
+    b = 0;
+    int c;
+    c = 0;
+    int d;
+    d = 1;
+    while(a>0){
+        b = a % 10;
+        c += b*d;
+        d *= 2;
+        a = a / 10;
+    }
+    cout << c << endl;
+    return 0;
+}
+
+Задание 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a;
+    cin >> a;
+    int b;
+    b = 0;
+    int c;
+    c = 0;
+    int d;
+    d = 1;
+    while(a>0){
+        b = a % 2;
+        c += b*m;
+        d *= 10;
+        a = a / 2;
+    }
+    cout << c << endl;
+    return 0;
+}
+3pract
+1.
+
+#include <iostream>
+#include <ctime>
+#include <windows.h>
+using namespace std;
+using namespace std;
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    // current date/time based on current system
+    time_t now = time(0);
+    int a;
+    int b;
+    int c;
+    cout << "Введите через год, месяц и день рождения: " << endl;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+
+    tm * ltm = localtime(&now);
+
+    cout << "Year: " << 1899 + ltm->tm_year - a << endl;
+    cout << "Month: "<< ltm->tm_mon + b - 11 << endl;
+    cout << "Day: "<<  ltm->tm_mday + c - 6 << endl;
+
+}
+
+2.
+int task2(){
+    cout << "Input two numbers and operation\n" << endl;
+    float a = 0;
+    float b = 0;
+    char op = 0;
+    try{
+        cin >> a >> b >> op;
+    if (cin.fail()) {
+        throw 1;
+    }
+}
+catch(int x){
+    cerr<<"expected number,not symbol";
+    return -1;
+}
+    switch(op){
+        case '+':
+            cout << a+b << endl;
+            break;
+        case '-':
+            cout << a-b << endl;
+            break;
+        case '*':
+            cout << a*b << endl;
+            break;
+        case '/':
+            try{
+
+                if (b==0){
+                    throw 1;
+                }
+                else cout<<a/b;
+            }catch (int a){
+                cerr<<"don't divide by zero\n";
+                return -1;
+            }
+            break;
+        default:
+            cout <<"invalid operation"<< endl;
+    }
+    return 0;
+}
+4pract
+1
+
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int i, j;
+void Selection_Sort(int A[], int n)
+{
+    int count, key;
+    for (i=0; i<n-1; i++)
+    {
+        count=A[i]; key=i;
+        for (j=i+1; j<n; j++)
+            if (A[j]<A[key]) key=j;
+        if (key!=i)
+        {
+            A[i]=A[key];
+            A[key]=count;
+        }
+    }
+    cout<<"Конечный массив: ";
+    for (i=0; i<n; i++) cout<<A[i]<<" ";
+}
+
+int main()
+{
+
+    SetConsoleOutputCP(CP_UTF8);
+    int n, A[1000];
+    cout<<"Количество элементов в массиве: "; cin>>n;
+    cout<<"Введите элементы массива через enter: ";
+    for (i=0; i<n; i++)
+    { cin>>A[i];}
+    Selection_Sort(A, n);
+}
+
+2 
+void bubble_sort(int* arr,const int size){
+    int buf;
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size-1; j++){
+            if(arr[j]>arr[j+1]){
+                buf=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=buf;
+            }
+        }
+    }
+}
+
+3: 
+
+#include <iostream>
+#include <windows.h>
+using namespace std;
+void insertion_sort(int* masiv, int n)
+{
+    int key = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int i = 1; i < n; i++) {
+            for (int j = i; j > 0 && mas[j - 1] > masiv[j]; j--) {
+
+                int tmp = masiv[j - 1];
+                masiv[j - 1] = masiv[j];
+                masiv[j] = tmp;
+            }
+        }
+    }
+    cout << endl << "Итоговый массив: ";
+    for (int i = 0; i < n; i++)
+        cout << masiv[i] << "\t";
+}
+int main()
+{
+    SetConsoleOutputCP(CP_UTF8);
+    int n;
+    cout << "Количество элементов в массиве: " << " ";
+    cin >> n;
+    cout << "Введите элементы массива с помощью enter: "  << " ";
+    int* masiv = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> masiv[i];
+    }
+    insertion_sort(masiv, n);
+    cout << endl;
+    return 0;
+}
+pract5
+Задаине 1	
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int binary_search(int arr[], int l, int r, int k)
+{
+    int m = 0;
+    while (1)
+    {
+        m = (l + r) / 2;
+        if (k < arr[m])
+            r = m - 1;
+        else if (k > arr[m])
+            l = m + 1;
+        else
+            return m;
+        if (l > r)
+            return -1;
+    }
+}
+
+int main()
+{
+    SetConsoleOutputCP(CP_UTF8);
+    const int SIZE = 12;
+    int array[SIZE] = {};
+    int k = 0;
+    int index = 0;
+    for(int i = 0; i < SIZE; i++)
+    {
+        array[i] = i + 1;
+    }
+    cout <<"Массив содержит числа от 1 до 12";
+    cout << "Введите числа";
+    cin >> k;
+    index = binary_search(array, 0, SIZE, k);
+
+    if (index >= 0)
+        cout << "индекс числа" << index;
+    else
+        cout << "-1";
+
+    return 0;
+}
+Задание 2
+#include <bits/stdc++.h>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int find_terms(int arr[], int res, int k)
+{
+    unordered_map<int, int> m;
+    for (int i = 0; i < res; i++)
+        m[arr[i]]++;
+    int a = 0;
+    for (int i = 0; i < res; i++)
+    {
+        a += m[k-arr[i]];
+        if (k - arr[i] == arr[i])
+            a--;
+    }
+    return a/2;
+}
+
+int main()
+    {
+        SetConsoleOutputCP(CP_UTF8);
+        int n;
+        cout << "Размер массива: ";
+        cin >> n;
+        int arr[n];
+        cout << "Массив, через enter:";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    int k;
+    cout << "Требуемая сумма: ";
+    cin >> k;
+
+    int res = sizeof(arr)/sizeof(arr[0]);
+    cout << "Количество сумм: "<< find_terms(arr, res, k);
+    return 0;
+}
+pract6
+1.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    char b = 0;
+    char a = 0;
+    cout << "      0     1     2     3     4     5     6     7     8     9     A     B     C     D     E     F" << endl;
+    for(int i = 1; i<16; i++){
+        b = i + 55;
+        if (i<10)
+            cout << i << "     ";
+        else
+            cout << b << "     ";
+        for(int j = 0; j<16; j++){
+            a = i*16 + j;
+            cout << a;
+            if(a/100 == 0){
+                cout << "     ";
+            }
+            else{
+                cout << "     ";
+            }
+        }
+        cout << endl;
+    }
+}
+pract7
+1.
+#include <windows.h>
+#include <fstream>
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    SetConsoleOutputCP(CP_UTF8);
+    ofstream fout("test.txt");
+    fout << "ja hochu pitsi";
+    fout.close();
+    system("pause");
+    return 0;
+}
+
+2.
+#include <iostream>
+#include <windows.h>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    SetConsoleOutputCP(CP_UTF8);
+    string a;
+    ifstream file("test.txt");
+
+    while(getline(file, a)){
+        cout << a << endl;
+    }
+
+    file.close();
+
+    return 0;
+}
+
+3.
+#include <iostream>
+#include <windows.h>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    SetConsoleOutputCP(CP_UTF8);
+    string s;
+    ifstream file("test.txt");
+    int n = 255;
+    char* buffer = new char[n+1];
+    buffer[n]=0;
+    file.get(buffer,n);
+    cout << buffer;
+
+    file.close();
+
+    return 0;
+}
+4.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+    system("chcp 65001");
+    string s;
+    ifstream file("test.txt");
+
+    for(file >> s; !file.eof(); file >> s)
+        cout << s << endl;
+    if (file.eof())
+        cout << "Достигнут конец файла\n";
+    file.close();
+    return 0;
+}
+5.
+
+#include <windows.h>
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    SetConsoleOutputCP(CP_UTF8);
+    ofstream fout("test2.txt");
+    string a;
+    cin >> a;
+    fout << a;
+    fout.close();
+    system("pause");
+    return 0;
+}
+6.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    system("chcp 65001");
+    string l;
+    ifstream fin("test.txt");
+    while(getline(fin, l))
+    {
+        cout << l << endl;
+    }
+    fin.seekg(0,ios_base::end); 
+    cout << "Размер файла в байтах: " << fin.tellg();
+    fin.close();
+    return 0;
+}
+pract8
+1.
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    char str[] = "12312522.074564643eqeq";
+    char *end;
+    double number;
+
+    number = strtod(str, &end);
+    cout << "number = " << str << endl;
+    cout << "double = " << number << endl;
+    return 0;
+}
+
+2.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main () {
+    vector<char> result;
+    vector<char>::iterator el;
+    string::iterator it;
+
+    string str;
+    cout << "Enter your word:\n";
+    cin >> str;
+
+    for (it = str.begin(); it!=str.end(); ++it)
+    {
+        result.push_back(*it);
+    }
+
+    for (el = result.begin(); el !=result.end(); ++el)
+    {
+        cout<<*el<<endl;
+    }
+    return 0;
+
+}
+practice9
+#1
+#include <iostream>
+using namespace std;
+class matrix
+{
+private:
+    int mat[3][3];
+    int l,c;
+public:
+    void getdate()
+    {
+
+        for (int i=0; i<5; i++)
+            for (int j=0; j<5; j++)
+                mat[i][j]=rand() %10;
+    };
+    void putdate()
+    {
+        cout << "Kol-vi linii:\n";
+        cin >> l;
+        cout << "Kol-vo stolbcov:\n";
+        cin >> c;
+        for (int i=0; i<l; i++)
+        {
+            for (int j=0; j<c; j++)
+                cout<<mat[i][j]<<" ";
+            cout<<endl;}
+    };
+
+};
+int main()
+{
+    matrix mat;
+    mat.getdate();
+    mat.putdate();
+
+    return 0;
+}
+
+#2
+#include "iostream"
+using namespace std;
+int main()
+{
+    int l, c, a[10][10], b[10][10], sum[10][10], i, j;
+    cout << "Kol-vo linii:\n";
+    cin >> l; 
+    cout << "Kol-vo stolbcov:\n";
+    cin >> c;
+    cout << endl << "Kol-vo elementov pervoi matr: " << endl;
+
+    for(i = 0; i < l; ++i)
+        for(j = 0; j < c; ++j)
+        {
+            cout << "Element a" << i + 1 << j + 1 << ": ";
+            cin >> a[i][j];
+        }
+
+    cout << endl << "Kol-vo elementov vtoroi matr: " << endl;
+    for(i = 0; i < l; ++i)
+        for(j = 0; j < c; ++j)
+        {
+            cout << "Element b" << i + 1 << j + 1 << ": ";
+            cin >> b[i][j]; }
+            for(i = 0; i < l; ++i)
+                for(j = 0; j < c; ++j) sum[i][j] = a[i][j] + b[i][j];
+            cout << endl << "Summa matr: " << endl;
+            for(i = 0; i < l; ++i)
+                for(j = 0; j < c; ++j)
+                {
+                    cout << sum[i][j] << " ";
+                    if(j == c - 1) cout << endl;
+                }
+            return 0;
+}
+
+#3
+#include "iostream"
+using namespace std;
+int main()
+{
+    int l, c, a[10][10], b[10][10], i, j;
+    cout << "Kol-vo linii:\n";
+    cin >> l;
+    cout << "Kol-vo stolbcov:\n";
+    cin >> c;
+    cout << endl << "Kol-vo elemetnov pervoi matr: " << endl;
+
+    for(i = 0; i < l; ++i)
+        for(j = 0; j < c; ++j)
+        {
+            cout << "element a" << i + 1 << j + 1 << ": ";
+            cin >> a[i][j];
+
+        }
+    for(i = 0; i < l; ++i){
+        for(j = 0; j < c; ++j)
+            cout << a[i][j] << " ";
+    }
+
+    for(i = 0; i < l; ++i){
+        for(j = 0; j < c; ++j)
+            b[i][j] = a[j][i];
+        }
+    for(i = 0; i < l; ++i){
+        for(j = 0; j < c; ++j)
+            cout << b[i][j] << " ";
+    }
+    
+            return 0;
+}
+pract10
+3
+
+#include <iostream>
+using namespace std;
+int main() {
+    int mas[] ={};
+    for(int i =0; i<(sizeof(mas)/ sizeof(int)); i++)
+    {
+        cout<<*(mas+i)<<' ';
+    }
+    return 0;
+}
